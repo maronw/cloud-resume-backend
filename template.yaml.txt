@@ -27,3 +27,14 @@ Resources:
           Properties:
             Path: /visitorcount
             Method: GET
+
+HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      Name: cloud-resume-http-api
+
+Outputs:
+  VisitorCountAPI:
+    Description: "HTTP API endpoint URL"
+    Value: !Sub "https://${HttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+
